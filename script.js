@@ -20,12 +20,13 @@ const btnAnim = document.querySelector('.button__anim');
 // When the user clicks on <span> (x), close the modal
 sapnClose.onclick = function() {
     modal.style.visibility = "hidden";
+    modalBackground.classList.remove('anim--rotate');
 }
 
 // When the user clicks the button, open the modal 
 btnOpen.onclick = function() {
     modal.style.visibility = "visible";   
-    modalBackground.classList.add('anim__show'); 
+    modalBackground.classList.add('anim--rotate'); 
     btnOk.focus();
 
 }
@@ -34,22 +35,22 @@ btnOpen.onclick = function() {
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.visibility = "hidden";
-    modalBackground.classList.remove('anim__show');
+        modalBackground.classList.remove('anim--rotate');
     }
 }
 
 btnOk.onclick = function (){
-    modalBackground.classList.remove('anim__show');
+    modalBackground.classList.remove('anim--rotate');
     modal.style.visibility = "hidden";
     
 }
 
 btnCancel.onclick = function (){
-    modalBackground.classList.remove('anim__show');
+    modalBackground.classList.remove('anim--rotate');
     modal.style.visibility = "hidden";
 }
 
 btnAnim.onclick = function(){
-    modalBackground.classList.add('anim__show');
+    modalBackground.classList.add('anim--rotate');
     modal.style.visibility = "hidden";
 }

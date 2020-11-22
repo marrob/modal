@@ -42,14 +42,9 @@ body {
   transition-property: transform;
 }
 
-.anim__show{
+.anim--rotate{
   transform: rotate(360deg);
 }
-
-/*
-.modal__background:hover{
-  transform: rotate(360deg);
-}*/
 
 .anim__hide{
   transition: opacity 1s ;
@@ -62,13 +57,6 @@ body {
    /* border: 1px solid black;*/
     padding:20px;
 }
-
-/*
-.modal__content:default{
-  opacity: 100%;
-}
-
-*/
 
 
 /*
