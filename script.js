@@ -1,37 +1,55 @@
 // Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
+const modal = document.querySelector('.modal');
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+const sapnClose = document.querySelector('.span__close');
 
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-    modal.style.display = "block";
-    let btnOk = document.querySelectorAll('.button__ok')[0];
-    btnOk.focus();
-}
+// Get the button that opens the modal
+const btnOpen = document.querySelector('.button__open');
+
+// Get the Ok button
+const btnOk = document.querySelector('.button__ok');
+
+// Get the Ok button
+const btnCancel = document.querySelector('.button__cancel');
+
+const modalBackground = document.querySelector('.modal__background');
+
+const btnAnim = document.querySelector('.button__anim');
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
+sapnClose.onclick = function() {
+    modal.style.visibility = "hidden";
+}
+
+// When the user clicks the button, open the modal 
+btnOpen.onclick = function() {
+    modal.style.visibility = "visible";   
+    modalBackground.classList.add('anim__show'); 
+    btnOk.focus();
+
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
-    modal.style.display = "none";
+        modal.style.visibility = "hidden";
+    modalBackground.classList.remove('anim__show');
     }
 }
 
-const eventHandler = ()=>{
-    let btnOk = document.querySelectorAll('.button__ok')[0];
-    btnOk.addEventListener('click', ()=>{
-        modal.style.display = "none"; 
-    })
+btnOk.onclick = function (){
+    modalBackground.classList.remove('anim__show');
+    modal.style.visibility = "hidden";
+    
 }
 
-eventHandler();
+btnCancel.onclick = function (){
+    modalBackground.classList.remove('anim__show');
+    modal.style.visibility = "hidden";
+}
 
+btnAnim.onclick = function(){
+    modalBackground.classList.add('anim__show');
+    modal.style.visibility = "hidden";
+}
