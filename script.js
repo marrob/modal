@@ -17,40 +17,54 @@ const modalBackground = document.querySelector('.modal__background');
 
 const btnAnim = document.querySelector('.button__anim');
 
+const animated = document.querySelector('.modal__content');
+
 // When the user clicks on <span> (x), close the modal
 sapnClose.onclick = function() {
     modal.style.visibility = "hidden";
-    modalBackground.classList.remove('anim--rotate');
+    modalBackground.classList.toggle('anim--rotate');
+
 }
+let requiedToClose = false;
+
 
 // When the user clicks the button, open the modal 
 btnOpen.onclick = function() {
     modal.style.visibility = "visible";   
-    modalBackground.classList.add('anim--rotate'); 
+    modalBackground.classList.toggle('anim--rotate'); 
     btnOk.focus();
-
+    console.log('start');
+    requiedToClose = false;
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.visibility = "hidden";
-        modalBackground.classList.remove('anim--rotate');
+        requiedToClose = true;
     }
 }
 
 btnOk.onclick = function (){
-    modalBackground.classList.remove('anim--rotate');
-    modal.style.visibility = "hidden";
-    
+    modalBackground.classList.toggle('anim--rotate');
+    requiedToClose = true; 
 }
 
 btnCancel.onclick = function (){
-    modalBackground.classList.remove('anim--rotate');
-    modal.style.visibility = "hidden";
+    modalBackground.classList.toggle('anim--rotate');
+    requiedToClose = true;
 }
 
 btnAnim.onclick = function(){
-    modalBackground.classList.add('anim--rotate');
-    modal.style.visibility = "hidden";
+    modalBackground.classList.toggle('anim--rotate');
+}
+
+modalBackground.ontransitionend = function(){
+    if(requiedToClose == true)
+    {
+        modal.style.visibility = "hidden";
+        requiedToClose = false;
+    }
+    console.log('animacio vege');
+    modalBackground.background = 'red';
 }
