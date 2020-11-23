@@ -25,7 +25,7 @@ Javítások:
         <h2>Modal Example</h2>
         
         <!-- Trigger/Open The Modal -->
-        <button class="button__open">Open Modal</button>
+        <button class="button__open" tabindex="-1">Open Modal</button>
         
         <!-- The Modal -->
         <div class="modal">
@@ -35,7 +35,7 @@ Javítások:
             <div class="modal__background ">
               
               <div class="modal__content">
-                  <span class="span__close">&times;</span>
+                  <span class="span__close" tabindex="3">&times;</span>
                   <header>
                     <h1>CSSScript.com</h1>
                   </header>
@@ -51,9 +51,9 @@ Javítások:
                     </article>
                 </main>
                 <footer class="footer__container">
-                  <button class="button__ok" >Okey</button>
-                  <button class="button__cancel">Cancel</button>
-                  <button class="button__anim">Animálj</button>
+                  <button class="button__ok" tabindex="1">Okey</button>
+                  <button class="button__cancel" tabindex="2">Cancel</button>
+                 <!-- <button class="button__anim" tabindex="1">Animálj</button>-->
                 </footer>
               </div>
             </div>

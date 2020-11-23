@@ -38,9 +38,8 @@ body {
   border: 1px solid #888;
   width: 100%;
 
- transition-duration: 0.8s;
+  transition-duration: 0.8s;
   transition-property: transform;
-  ;
 }
 
 .anim--rotate{
@@ -53,9 +52,6 @@ body {
 }
 
 .modal__content{
-  /* transition: opacity 1s ;*/
-  /*  opacity: 0%;*/
-   /* border: 1px solid black;*/
     padding:20px;
 }
 

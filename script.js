@@ -19,14 +19,8 @@ const btnAnim = document.querySelector('.button__anim');
 
 const animated = document.querySelector('.modal__content');
 
-// When the user clicks on <span> (x), close the modal
-sapnClose.onclick = function() {
-    modal.style.visibility = "hidden";
-    modalBackground.classList.toggle('anim--rotate');
-
-}
+// ha ezt valaki beallitja akkor az animacio végén be kell zarni a dialogust
 let requiedToClose = false;
-
 
 // When the user clicks the button, open the modal 
 btnOpen.onclick = function() {
@@ -35,6 +29,19 @@ btnOpen.onclick = function() {
     btnOk.focus();
     console.log('start');
     requiedToClose = false;
+}
+
+// When the user clicks on <span> (x), close the modal
+sapnClose.onclick = function() {
+    modalBackground.classList.toggle('anim--rotate');
+    requiedToClose = true;
+}
+sapnClose.onkeypress =(e)=>{
+    if (e.which == 32){
+        console.log('space');
+        modalBackground.classList.toggle('anim--rotate');
+        requiedToClose = true;
+    }
 }
 
 // When the user clicks anywhere outside of the modal, close it
@@ -55,10 +62,11 @@ btnCancel.onclick = function (){
     requiedToClose = true;
 }
 
+/*
 btnAnim.onclick = function(){
     modalBackground.classList.toggle('anim--rotate');
 }
-
+*/
 modalBackground.ontransitionend = function(){
     if(requiedToClose == true)
     {
